@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="customStyles.css">
+  <title>Guessing Game - Dorgann2 Portfolio</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="guessingGame.html">Guessing Game</a>
+          </li>
+          <li class="nav-item">
+            <a href="hangman.html" class="nav-link">Hangman Game</a>
+          </li>
+          <li class="nav-item">
+            <a href="scholarshipApplication.html" class="nav-link">Scholarship App</a>
+          </li>
+          <li class="nav-item">
+            <a href="speed.html" class="nav-link">Speed Game</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Guessing Game</h1>
+
+    <div id="carousel" style="width: 600px;" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <img src="images/guessingGameHome.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <p>Login page</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="images/guessingGameHighscores.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <p>Game high score table.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <p>This was the one of the first projects I completed in one of my final
+      college courses. I worked alone for this project.
+      It's a simple number guessing game, the idea is to guessing
+      the correct number between 1 and 100 with as few guesses as possible.
+    </p>
+
+    <p>Some of the skills I aquried while working on this project were:</p>
+
+    <ul>
+      <li>Using php as the scripting language to create interactive web pages</li>
+      <li>Hosting a website and an associated database using an online hosting service</li>
+      <li>Procuring a valid certificate for SSL/TLS</li>
+      <li>Salting and hashing passwords for secure storage in a database</li>
+    </ul>
+
+    <span>Feel free to try to game out <a href="http://prettykittyinabox.epizy.com/index.php"
+      target="_blank">here</a>!</span>
+
+    <p>Here's a sample of some code I used while making this project.</p>
+
+    <div class="accordion" id="accordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Expand to view code snippet
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
+          <div class="accordion-body">
+            <pre class="border border-5">
+              <code>
+&#x3C;?php
+    session_start();
+
+    // server side code
+&#x9;$servername = &#x22;&#x22;;
+&#x9;$username = &#x22;&#x22;;
+&#x9;$password = &#x22;&#x22;;
+&#x9;$dbname = &#x22;&#x22;;
+
+    if(isset($_POST[&#x22;userguess&#x22;])){
+        $guess = $_POST[&#x22;userguess&#x22;];
+    }
+
+    // set up DB connection
+&#x9;$conn = new mysqli($servername, $username, $password, $dbname);
+&#x9;if ($conn-&#x3E;connect_error) {
+&#x9;&#x9;die(&#x22;Connection failed: &#x22; . $conn-&#x3E;connect_error);
+&#x9;}
+
+    $form = &#x27;
+        &#x3C;form method=&#x22;POST&#x22; action=&#x22;game.php&#x22;&#x3E;
+        &#x3C;label for=&#x22;userguess&#x22;&#x3E;&#x3C;/label&#x3E;&#x3C;br&#x3E;
+        &#x3C;input type=&#x22;number&#x22; id=&#x22;userguess&#x22; name=&#x22;userguess&#x22; required&#x3E;
+
+        &#x3C;input type=&#x22;submit&#x22; value=&#x22;Enter Guess&#x22;/&#x3E;
+        &#x3C;/form&#x3E;
+    &#x27;;
+?&#x3E;
+&#x3C;!DOCTYPE html&#x3E;
+&#x3C;html&#x3E;
+    &#x3C;head&#x3E;
+        &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css&#x22;&#x3E;
+    &#x3C;/head&#x3E;
+    &#x3C;body&#x3E;
+        &#x3C;nav class=&#x22;navbar navbar-default&#x22;&#x3E;
+            &#x3C;div class=&#x22;container-fluid&#x22;&#x3E;
+                &#x3C;div class=&#x22;navbar-header&#x22;&#x3E;
+                    &#x3C;a class=&#x22;navbar-brand disabled&#x22; href=&#x22;#&#x22;&#x3E;Pretty Kitty&#x27;s Number Game&#x3C;/a&#x3E;
+                &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;collapse navbar-collapse&#x22; id=&#x22;bs-example-navbar-collapse-1&#x22;&#x3E;
+                    &#x3C;ul class=&#x22;nav navbar-nav&#x22;&#x3E;
+                        &#x3C;li class=&#x22;active&#x22;&#x3E;&#x3C;a href=&#x22;index.php&#x22;&#x3E;Home&#x3C;span class=&#x22;sr-only&#x22;&#x3E;(current)&#x3C;/span&#x3E;&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+                        &#x3C;li&#x3E;&#x3C;a href=&#x22;highscores.php&#x22;&#x3E;High Scores&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+                    &#x3C;/ul&#x3E;
+                &#x3C;/div&#x3E;
+            &#x3C;/div&#x3E;
+        &#x3C;/nav&#x3E;
+
+        &#x3C;div class=&#x22;container&#x22;&#x3E;
+            &#x3C;div class=&#x22;row&#x22;&#x3E;
+                &#x3C;?php
+                    if(isset($_SESSION[&#x22;randomNumber&#x22;])){
+                        if(isset($_POST[&#x22;userguess&#x22;])){
+                            if($guess != $_SESSION[&#x22;randomNumber&#x22;]){
+                                if($guess &#x3E; $_SESSION[&#x22;randomNumber&#x22;]){
+                                    echo &#x22;&#x3C;p&#x3E;Your guess was too high!&#x3C;/p&#x3E;&#x22;;
+                                }
+        
+                                if($guess &#x3C; $_SESSION[&#x22;randomNumber&#x22;]){
+                                    echo &#x22;&#x3C;p&#x3E;Your guess was too low!&#x3C;/p&#x3E;&#x22;;
+                                }
+                                
+                                $_SESSION[&#x22;userGuesses&#x22;] = $_SESSION[&#x22;userGuesses&#x22;] + 1;
+
+                                printf($form);
+    
+                            } else {
+                                echo &#x22;&#x3C;p&#x3E;You won! The correct number was &#x22; . $_SESSION[&#x22;randomNumber&#x22;] . &#x22;&#x3C;/p&#x3E;&#x22;;
+                                unset($_SESSION[&#x22;randomNumber&#x22;]);
+                                echo &#x27;&#x3C;a href=&#x22;gamestart.php&#x22;&#x3E;Return to home&#x3C;/a&#x3E;&#x27;;
+
+                                // get lowest score out of top 10 high scores
+                                $dbLowestHighScore = &#x22;&#x22;;
+                                $sqlLowestTopTenScore = &#x22;SELECT Max(Score) From (SELECT Score FROM High_Scores ORDER BY Score ASC ) AS temp1 Limit 10;&#x22;;
+                                $result = $conn-&#x3E;query($sqlLowestTopTenScore);
+                                if($result-&#x3E;num_rows &#x3E; 0 ){
+                                    while ($row = $result-&#x3E;fetch_assoc()){
+                                        $dbLowestHighScore = $row[&#x22;Score&#x22;];
+                                    }
+                                }
+
+                                // if score is higher than one of the top ten scores, insert the new record
+                                if($_SESSION[&#x22;userGuesses&#x22;] &#x3E; $sqlLowestTopTenScore || $result-&#x3E;num_rows &#x3C; 10){
+                                    // get current userId
+                                    $sessionUserName = $_SESSION[&#x22;username&#x22;];
+                                    $sessionUserGuesses = $_SESSION[&#x22;userGuesses&#x22;];
+
+                                    $dbUserId = &#x22;&#x22;;
+                                    $sqlUserId = &#x22;SELECT Id FROM User_Info WHERE Username = &#x27;$sessionUserName&#x27;&#x22;;
+                                    $result = $conn-&#x3E;query($sqlUserId);
+                                    if($result-&#x3E;num_rows &#x3E; 0 ){
+                                        while ($row = $result-&#x3E;fetch_assoc()){
+                                            $dbUserId = $row[&#x22;Id&#x22;];
+                                        }
+                                    }
+
+                                    // enter data to DB
+                                    $date = date(&#x22;Y-m-d H:i:s&#x22;);
+                                    $sqlInsertScore = &#x22;INSERT INTO High_Scores(User_Info_Id, Score, Score_date) VALUES (&#x27;$dbUserId&#x27;, &#x27;$sessionUserGuesses&#x27;, &#x27;$date&#x27;)&#x22;;
+                                    if ($conn-&#x3E;query($sqlInsertScore) === TRUE) {
+                                        $lowestTopTenScore = 0;
+                                        $sqlLowestTopTen = &#x22;SELECT MAX(Score) as Score FROM (SELECT Score FROM High_Scores AS S INNER JOIN User_Info AS I On I.Id = S.User_Info_Id ORDER BY Score ASC LIMIT 10) AS Top_Ten;&#x22;;
+                                        $result = $conn-&#x3E;query($sqlLowestTopTen);
+                                        if($result-&#x3E;num_rows &#x3E; 0 ){
+                                            while ($row = $result-&#x3E;fetch_assoc()){
+                                                $lowestTopTenScore = $row[&#x22;Score&#x22;];
+                                            }
+                                        }
+
+                                        if($sessionUserGuesses &#x3C; $lowestTopTenScore){
+                                            echo &#x22;&#x3C;p&#x3E;New High Score! &#x22; . $_SESSION[&#x22;userGuesses&#x22;] . &#x22; guesses&#x3C;/p&#x3E;&#x22;;
+                                        } else {
+                                            echo &#x22;&#x3C;p&#x3E;Score: &#x22; . $_SESSION[&#x22;userGuesses&#x22;] . &#x22; guesses&#x3C;/p&#x3E;&#x22;;
+                                            echo &#x22;&#x3C;p&#x3E;Not high enough for the top 10 high score board...&#x3C;/p&#x3E;&#x22;;
+                                        }
+                                        echo &#x27;&#x3C;a href=&#x22;highscores.php&#x22;&#x3E;VIew High Scores&#x3C;/a&#x3E;&#x27;;
+                                    }
+                                }
+                            }
+                        } else {
+                            echo &#x22;&#x3C;p&#x3E;Guess a number between 1 and 100:&#x3C;/p&#x3E;&#x22;;
+    
+                            printf($form);
+                        }
+                    } else {
+                        echo &#x22;&#x3C;p&#x3E;The game has not yet been started.&#x3C;/p&#x3E;&#x22;;
+                        echo &#x27;&#x3C;a href=&#x22;gamestart.php&#x22;&#x3E;Return to home&#x3C;/a&#x3E;&#x27;;
+                    }
+                    $conn-&#x3E;close();
+                ?&#x3E;
+            &#x3C;/div&#x3E;
+        &#x3C;/div&#x3E;
+    &#x3C;/body&#x3E;
+&#x3C;/html&#x3E;
+              </code>  
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

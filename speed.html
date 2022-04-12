@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="customStyles.css">
+  <title>Guessing Game - Dorgann2 Portfolio</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="guessingGame.html">Guessing Game</a>
+          </li>
+          <li class="nav-item">
+            <a href="hangman.html" class="nav-link">Hangman Game</a>
+          </li>
+          <li class="nav-item">
+            <a href="scholarshipApplication.html" class="nav-link">Scholarship App</a>
+          </li>
+          <li class="nav-item">
+            <a href="speed.html" class="nav-link active" aria-current="page">Speed Game</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Speed Game</h1>
+
+    <div id="carousel" style="width: 600px;" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <img src="images/speedLanding.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <p>Landing page</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="images/speedGame.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <p>Game layout for both endpoints</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <p>This is one of the last projects I worked on in one of my upper division 
+      college courses. I also worked on this project with a team. We were required
+      to make the card game speed into a web application, where two players could
+      connect with each other (in this case opening a page on two different browsers).
+      All of the rules of the official speed game were implemented into our logic
+    </p>
+
+    <p>This project proved to be a bit more challenging for our group because none 
+      of us were familiar with websockets or how they worked with C# and the front end.
+      I was able to find a useful article from Microsoft listing the basic functionality
+      of websockets through SignalR using javascript and a c# hub (somewhat similar to 
+      a controller in MVC style programming). Once we found and implemented an example
+      we were able to get the game working pretty quickly.
+    </p>
+
+    <p>I have listed a snippet of code below. However, if you'd like to see the entire
+      repository for this project, you can visit it <a href="https://github.com/dorgann2/CS3750_Speed" target="_blank">here</a>.
+    </p>
+
+    <div class="accordion" id="accordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Expand to view code snippet
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
+          <div class="accordion-body">
+            <pre class="border border-5">
+              <code>
+public void Deal()
+{
+    var cards = new List&#x3C;string&#x3E; { &#x22;2_of_clubs.png&#x22;, &#x22;2_of_diamonds.png&#x22;, &#x22;2_of_hearts.png&#x22;, &#x22;2_of_spades.png&#x22;, &#x22;3_of_clubs.png&#x22;, &#x22;3_of_diamonds.png&#x22;, &#x22;3_of_hearts.png&#x22;, &#x22;3_of_spades.png&#x22;, &#x22;4_of_clubs.png&#x22;, &#x22;4_of_diamonds.png&#x22;, &#x22;4_of_hearts.png&#x22;, &#x22;4_of_spades.png&#x22;, &#x22;5_of_clubs.png&#x22;, &#x22;5_of_diamonds.png&#x22;, &#x22;5_of_hearts.png&#x22;, &#x22;5_of_spades.png&#x22;, &#x22;6_of_clubs.png&#x22;, &#x22;6_of_diamonds.png&#x22;, &#x22;6_of_hearts.png&#x22;, &#x22;6_of_spades.png&#x22;, &#x22;7_of_clubs.png&#x22;, &#x22;7_of_diamonds.png&#x22;, &#x22;7_of_hearts.png&#x22;, &#x22;7_of_spades.png&#x22;, &#x22;8_of_clubs.png&#x22;, &#x22;8_of_diamonds.png&#x22;, &#x22;8_of_hearts.png&#x22;, &#x22;8_of_spades.png&#x22;, &#x22;9_of_clubs.png&#x22;, &#x22;9_of_diamonds.png&#x22;, &#x22;9_of_hearts.png&#x22;, &#x22;9_of_spades.png&#x22;, &#x22;10_of_clubs.png&#x22;, &#x22;10_of_diamonds.png&#x22;, &#x22;10_of_hearts.png&#x22;, &#x22;10_of_spades.png&#x22;, &#x22;jack_of_clubs.png&#x22;, &#x22;jack_of_diamonds.png&#x22;, &#x22;jack_of_hearts.png&#x22;, &#x22;jack_of_spades.png&#x22;, &#x22;queen_of_clubs.png&#x22;, &#x22;queen_of_diamonds.png&#x22;, &#x22;queen_of_hearts.png&#x22;, &#x22;queen_of_spades.png&#x22;, &#x22;king_of_clubs.png&#x22;, &#x22;king_of_diamonds.png&#x22;, &#x22;king_of_hearts.png&#x22;, &#x22;king_of_spades.png&#x22;, &#x22;ace_of_clubs.png&#x22;, &#x22;ace_of_diamonds.png&#x22;, &#x22;ace_of_hearts.png&#x22;, &#x22;ace_of_spades.png&#x22; };
+    var shuffled_cards = cards.OrderBy(a =&#x3E; Random.Next()).ToList();
+    var i = 0;
+    foreach (var image in shuffled_cards)
+    {
+        var name = image.Split(&#x27;_&#x27;)[0];
+        var suit = image.Split(&#x27;_&#x27;)[2].Split(&#x27;.&#x27;)[0];
+        var card = new Card(name, suit, image);
+        if (PlayPileOne.Count &#x3C; 1)
+        {
+            PlayPileOne.Add(card);
+        }
+        else if (PlayPileTwo.Count &#x3C; 1)
+        {
+            PlayPileTwo.Add(card);
+        }
+        else if (PickPileOne.Count &#x3C; 5)
+        {
+            PickPileOne.Add(card);
+        }
+        else if (PickPileTwo.Count &#x3C; 5)
+        {
+            PickPileTwo.Add(card);
+        }
+        else if (PlayerOneDeck.Count &#x3C; 20)
+        {
+            PlayerOneDeck.Add(card);
+        }
+        else
+        {
+            PlayerTwoDeck.Add(card);
+        }
+        i++;
+    }
+
+    for (i = 0; i &#x3C; 5; i++)
+    {
+        PlayerOneHand.Add(PlayerOneDeck[i]);
+        PlayerTwoHand.Add(PlayerTwoDeck[i]);
+    }
+
+    PlayerOneDeck.RemoveRange(0, 5);
+    PlayerTwoDeck.RemoveRange(0, 5);
+}
+
+public void Reshuffle()
+{
+    var cards = new List&#x3C;Card&#x3E;();
+    foreach (var card in PlayPileOne)
+    {
+        cards.Add(card);
+    }
+    foreach (var card in PlayPileTwo)
+    {
+        cards.Add(card);
+    }
+
+    PlayPileOne.Clear();
+    PlayPileTwo.Clear();
+
+    var shuffled_cards = cards.OrderBy(a =&#x3E; Random.Next()).ToList();
+
+    var half = shuffled_cards.Count() / 2;
+    for(int i = 0; i &#x3C; shuffled_cards.Count; i++)
+    {
+        var card = shuffled_cards[i];
+        if(i &#x3C; half)
+        {
+            PickPileOne.Add(card);
+        }
+        else
+        {
+            PickPileTwo.Add(card);
+        }
+    }
+}
+
+public List&#x3C;string&#x3E; GetHand(string player_number)
+{
+    var hand = new List&#x3C;string&#x3E;();
+    if (player_number == &#x22;player_one&#x22;)
+    {
+        foreach(var card in PlayerOneHand)
+        {
+            hand.Add(card.Image);
+        }
+    }
+    else
+    {
+        foreach(var card in PlayerTwoHand)
+        {
+            hand.Add(card.Image);
+        }
+    }
+    return hand;
+}
+
+public bool PlayCard(string player_number, int hand_index, string play_pile)
+{
+    int pile_value;
+    int card_value;
+    List&#x3C;Card&#x3E; pile;
+
+
+    if (play_pile == &#x22;play_pile_one&#x22;)
+    {
+        pile = PlayPileOne;
+        pile_value = PlayPileOne.Last().Value;
+    }
+    else
+    {
+        pile = PlayPileTwo;
+        pile_value = PlayPileTwo.Last().Value;
+    }
+
+    if (player_number == &#x22;player_one&#x22;)
+    {
+        card_value = PlayerOneHand[hand_index].Value;
+        if(IsValidPlay(card_value, pile_value))
+        {
+            var card = PlayerOneHand[hand_index];
+            moveCard(pile,PlayerOneHand,card);
+            if(PlayerOneDeck.Count() &#x3E; 0)
+            {
+                card = PlayerOneDeck.Last();
+                moveCard(PlayerOneHand,PlayerOneDeck,card);
+            }
+            
+            return true;
+        }
+    }
+    else
+    {
+        card_value = PlayerTwoHand[hand_index].Value;
+        if (IsValidPlay(card_value, pile_value))
+        {
+            var card = PlayerTwoHand[hand_index];
+            moveCard(pile, PlayerTwoHand, card);
+            if(PlayerTwoDeck.Count() &#x3E; 0)
+            {
+                card = PlayerTwoDeck.Last();
+                moveCard(PlayerTwoHand, PlayerTwoDeck, card);
+            }
+            
+            return true;
+        }
+    }
+    return false;
+}
+
+
+public bool IsValidPlay(int card_value, int pile_value)
+{
+    if ((card_value + 1) % 13 == pile_value || (pile_value + 1) % 13 == card_value)
+    {
+        return true;
+    }
+
+    return false;
+}
+
+public void playPilesPlayable()
+{
+    Card newPlayPileCard;
+
+    while(!playerHandPlayable(PlayerOneHand) &#x26;&#x26; !playerHandPlayable(PlayerTwoHand))
+    {
+        if(PickPileOne.Count() == 0 || PickPileTwo.Count() == 0)
+        {
+            Reshuffle();
+            Console.WriteLine(&#x22;Reshuffled deck&#x22;);
+        }
+        newPlayPileCard = PickPileOne.Last();
+        moveCard(PlayPileOne, PickPileOne, newPlayPileCard);
+
+        newPlayPileCard = PickPileTwo.Last();
+        moveCard(PlayPileTwo,PickPileTwo, newPlayPileCard);
+
+        Console.WriteLine(&#x22;Drew new cards for playPiles&#x22;);
+    }
+}
+
+public bool playerHandPlayable(List&#x3C;Card&#x3E; playerHand)
+{
+    bool pileOnePlayable = false;
+    bool pileTwoPlayable = false;
+
+    //Check player ones hand against both playable piles
+    foreach (var card in playerHand)
+    {
+        if ((card.Value + 1) % 13 == PlayPileOne.Last().Value || (PlayPileOne.Last().Value + 1) % 13 == card.Value)
+        {
+            pileOnePlayable = true;
+        }
+
+        if ((card.Value + 1) % 13 == PlayPileTwo.Last().Value || (PlayPileTwo.Last().Value + 1) % 13 == card.Value)
+        {
+            pileTwoPlayable = true;
+        }
+
+    }
+
+    if(pileOnePlayable || pileTwoPlayable)
+    {
+        return true;
+    }
+
+    return false;
+}
+
+//Moves specified card from an origin pile to a destination pile
+public void moveCard(List&#x3C;Card&#x3E; destinationPile, List&#x3C;Card&#x3E; originPile, Card takenCard )
+{
+    //Specified card to be moved
+    Card card = takenCard;
+
+    //Moves the specified card to the specified destination pile
+    destinationPile.Add(card);
+    //Removes the specified card from the origin pile
+    originPile.Remove(card);
+}
+              </code>  
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
