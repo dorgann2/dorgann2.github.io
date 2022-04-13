@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css">
-  <link rel="stylesheet" href="/customStyles.css" type="text/css">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="customStyles.css" type="text/css">
   <title>Speed Game - Dorgann2 Portfolio</title>
 </head>
 
@@ -53,13 +53,11 @@
         <div class="carousel-item active" data-bs-interval="10000">
           <img src="images/speedLanding.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <p>Landing page</p>
           </div>
         </div>
         <div class="carousel-item" data-bs-interval="2000">
           <img src="images/speedGame.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <p>Game layout for both endpoints</p>
           </div>
         </div>
       </div>
@@ -73,33 +71,33 @@
       </button>
     </div>
 
+    <h2>Link to repository</h2>
+    <p>To see the entire repository for this project, you can visit it <a href="https://github.com/dorgann2/CS3750_Speed" target="_blank">here</a>.
+      I have also included a code snippet below.
+    </p>
+
     <p>This is one of the last projects I worked on in one of my upper division 
-      college courses. I also worked on this project with a team. We were required
+      college courses. We were required
       to make the card game speed into a web application, where two players could
       connect with each other (in this case opening a page on two different browsers).
-      All of the rules of the official speed game were implemented into our logic
     </p>
 
-    <p>This project proved to be a bit more challenging for our group because none 
-      of us were familiar with websockets or how they worked with C# and the front end.
-      I was able to find a useful article from Microsoft listing the basic functionality
-      of websockets through SignalR using javascript and a c# hub (somewhat similar to 
-      a controller in MVC style programming). Once we found and implemented an example
-      we were able to get the game working pretty quickly.
-    </p>
+    <p>Useful skills utilized:</p>
 
-    <p>I have listed a snippet of code below. However, if you'd like to see the entire
-      repository for this project, you can visit it <a href="https://github.com/dorgann2/CS3750_Speed" target="_blank">here</a>.
-    </p>
+    <ul>
+      <li>Used C# Razer pages as the base for the server and UI</li>
+      <li>Utilized SignalR and jQuery to implement websockets for realtime instantaneous play </li>
+      <li>Wrote raw Javascript to communicate back and forth with websocket hub</li>
+    </ul> 
 
     <div class="accordion" id="accordion">
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-            Expand to view code snippet
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Toggle code visibility
           </button>
         </h2>
-        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion">
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion">
           <div class="accordion-body">
             <pre class="border border-5">
               <code>
@@ -335,7 +333,7 @@ public void moveCard(List&#x3C;Card&#x3E; destinationPile, List&#x3C;Card&#x3E; 
 
   </div>
 
-  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
